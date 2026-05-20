@@ -1,55 +1,84 @@
+"""Export facility metadata from the main layout model.
+
+The script intentionally imports facility definitions from water_plant_layout_v3.py
+instead of keeping a duplicated FACILITIES_DATA table.
+"""
+
+import argparse
+import contextlib
+import io
+import os
+
 import pandas as pd
 
-# 设施参数数据
-FACILITIES_DATA = [
-    # 取水区
-    ("IPS", "取水泵站", 18, 12, "intake", 1),
-    ("GC", "格栅间", 10, 6, "intake", 1),
-    # 预处理区
-    ("PS", "预沉池", 25, 15, "pretreat", 1),
-    # 常规处理区
-    ("MB", "混凝池", 22, 14, "conventional", 1),
-    ("FB", "絮凝池", 18, 12, "conventional", 1),
-    ("SB", "沉淀池", 35, 18, "conventional", 1),
-    ("FT", "滤池", 30, 16, "conventional", 1),
-    # 深度处理区
-    ("OZG", "臭氧接触池", 20, 12, "advanced", 2),
-    ("ACF", "活性炭滤池", 25, 15, "advanced", 1),
-    ("OZR", "臭氧发生间", 12, 10, "advanced", 3),
-    # 消毒加药区
-    ("CDR", "加药间", 14, 10, "chemical", 2),
-    ("CLS", "加氯间", 10, 8, "chemical", 3),
-    ("CST", "药剂仓库", 15, 10, "chemical", 2),
-    # 送配水区
-    ("CWT", "清水池", 35, 25, "distribution", 1),
-    ("BWT", "反冲洗水池", 15, 10, "distribution", 1),
-    ("PH1", "一级泵房", 15, 10, "distribution", 1),
-    ("PH2", "二级泵房", 20, 14, "distribution", 1),
-    # 动力区
-    ("PDR", "配电室", 18, 12, "power", 2),
-    ("TRF", "变压器室", 15, 10, "power", 3),
-    # 污泥处理区
-    ("STK", "污泥浓缩池", 18, 12, "sludge", 1),
-    ("SDR", "污泥脱水机房", 20, 12, "sludge", 1),
-    ("SYD", "污泥堆场", 20, 15, "sludge", 1),
-    # 行政办公区
-    ("CR", "中控室", 18, 12, "admin", 1),
-    ("OF", "综合办公楼", 25, 12, "admin", 1),
-    ("GT", "门卫室", 6, 4, "admin", 1),
-    ("LAB", "化验室", 12, 10, "admin", 1),
-    # 辅助设施区
-    ("WH", "综合仓库", 18, 10, "auxiliary", 1),
-    ("PK", "停车场", 20, 12, "auxiliary", 1),
-    ("MW", "维修车间", 18, 12, "auxiliary", 1),
-    # 生活区
-    ("DM1", "宿舍楼1", 15, 10, "living", 1),
-    ("DM2", "宿舍楼2", 15, 10, "living", 1),
-    ("DM3", "宿舍楼3", 15, 10, "living", 1),
-    ("DM4", "宿舍楼4", 15, 10, "living", 1),
-    ("SPF", "运动场", 30, 20, "living", 1),
-]
 
-columns = ["代码", "中文名", "长度(m)", "宽度(m)", "功能分区", "安全等级"]
-df = pd.DataFrame(FACILITIES_DATA, columns=columns)
-df.to_excel("facilities.xlsx", index=False)
-print("已导出为 facilities.xlsx")
+def load_facility_source():
+    """Load canonical facility data while suppressing import-time device probes."""
+    with contextlib.redirect_stdout(io.StringIO()):
+        from water_plant_layout_v3 import CATEGORY_NAMES, FACILITIES_DATA
+    return CATEGORY_NAMES, FACILITIES_DATA
+
+
+def build_facility_dataframe() -> pd.DataFrame:
+    category_names, facilities_data = load_facility_source()
+    rows = []
+    safety_labels = {1: "普通", 2: "中危", 3: "高危"}
+    for code, name_cn, length, width, category, safety_level in facilities_data:
+        rows.append({
+            "代码": code,
+            "中文名": name_cn,
+            "长度(m)": length,
+            "宽度(m)": width,
+            "面积(m²)": length * width,
+            "功能分区": category,
+            "功能分区名称": category_names.get(category, category),
+            "安全等级": safety_level,
+            "安全等级名称": safety_labels.get(safety_level, str(safety_level)),
+        })
+    return pd.DataFrame(rows)
+
+
+def export_facilities(output_dir: str, basename: str, formats: list[str]) -> list[str]:
+    os.makedirs(output_dir, exist_ok=True)
+    df = build_facility_dataframe()
+    written = []
+
+    if "xlsx" in formats:
+        path = os.path.join(output_dir, f"{basename}.xlsx")
+        with pd.ExcelWriter(path, engine="openpyxl") as writer:
+            df.to_excel(writer, index=False, sheet_name="设施参数")
+            ws = writer.sheets["设施参数"]
+            widths = [8, 14, 10, 10, 10, 14, 14, 10, 12]
+            for idx, width in enumerate(widths, 1):
+                ws.column_dimensions[chr(64 + idx)].width = width
+            ws.freeze_panes = "A2"
+        written.append(path)
+
+    if "csv" in formats:
+        path = os.path.join(output_dir, f"{basename}.csv")
+        df.to_csv(path, index=False, encoding="utf-8-sig")
+        written.append(path)
+
+    return written
+
+
+def main():
+    parser = argparse.ArgumentParser(description="导出供水厂设施参数表")
+    parser.add_argument("--output-dir", default="exports", help="输出目录")
+    parser.add_argument("--basename", default="facilities", help="输出文件名前缀")
+    parser.add_argument("--formats", default="xlsx,csv", help="逗号分隔格式: xlsx,csv")
+    args = parser.parse_args()
+
+    formats = [item.strip().lower() for item in args.formats.split(",") if item.strip()]
+    unsupported = sorted(set(formats) - {"xlsx", "csv"})
+    if unsupported:
+        raise ValueError(f"不支持的导出格式: {', '.join(unsupported)}")
+
+    written = export_facilities(args.output_dir, args.basename, formats)
+    print("设施参数已导出:")
+    for path in written:
+        print(f"  {path}")
+
+
+if __name__ == "__main__":
+    main()

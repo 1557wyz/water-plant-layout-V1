@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+
+# Generated analysis outputs
+outputs/
+exports/
+*_publication/
+tmp_*/*
+
+# Generated root-level figures/reports
+water_plant_layout_v3.svg
+water_plant_layout_v3.pdf
+water_plant_layout_v3.tiff
+water_plant_layout_v3.png
+academic_analysis*/
+elevation_*.svg
+elevation_*.pdf
+elevation_*.tiff
+elevation_*.png
+elevation_report.xlsx
+facilities.xlsx
+pipeline_lengths.xlsx
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

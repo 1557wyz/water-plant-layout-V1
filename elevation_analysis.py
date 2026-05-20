@@ -9,6 +9,8 @@
   4. 输出高程合规性报告
 """
 
+import argparse
+import os
 import sys, io
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -26,6 +28,9 @@ import pandas as pd
 # ---------- 学术风格全局设置 ----------
 plt.rcParams.update({
     'font.sans-serif':    ['SimHei', 'Microsoft YaHei', 'Arial'],
+    'font.family':        'sans-serif',
+    'svg.fonttype':       'none',
+    'pdf.fonttype':       42,
     'axes.unicode_minus': False,
     'axes.linewidth':     0.8,
     'axes.spines.top':    False,
@@ -60,57 +65,127 @@ PALETTE = {
     'fig_bg':    '#FFFFFF',   # 图纸背景
 }
 
+
+def save_publication_figure(fig, output_dir: str, stem: str, dpi: int):
+    """Save one figure as editable vector plus high-resolution raster outputs."""
+    os.makedirs(output_dir, exist_ok=True)
+    base = os.path.join(output_dir, stem)
+    fig.savefig(f"{base}.svg", bbox_inches="tight", facecolor=PALETTE['fig_bg'])
+    fig.savefig(f"{base}.pdf", bbox_inches="tight", facecolor=PALETTE['fig_bg'])
+    fig.savefig(f"{base}.tiff", dpi=dpi, bbox_inches="tight", facecolor=PALETTE['fig_bg'])
+    fig.savefig(f"{base}.png", dpi=min(dpi, 300), bbox_inches="tight", facecolor=PALETTE['fig_bg'])
+    return base
+
+
+def build_depth_report() -> pd.DataFrame:
+    """Build structure water-depth and elevation summary table."""
+    TYPE_CN  = {'pump': '泵站↑', 'gravity': '重力流', 'end': '终点/储存'}
+    ZONE_MAP = {
+        'IPS': '取水区',   'GC': '取水区',
+        'PS':  '预处理区',
+        'MB':  '常规处理区', 'FB': '常规处理区', 'SB': '常规处理区', 'FT': '常规处理区',
+        'OZG': '深度处理区', 'ACF': '深度处理区',
+        'CWT': '送配水区',  'BWT': '送配水区',  'PH2': '送配水区',
+        'STK': '污泥处理区', 'SDR': '污泥处理区', 'SYD': '污泥处理区',
+    }
+    depth_rows = []
+    for code, ed in ELEVATION_DATA.items():
+        wd = ed.get('water_depth', 0)
+        ground = ed['ground']
+        water_out = ed['water_out']
+        effective_depth = wd if wd > 0 else '—'
+        if ed['type'] == 'pump':
+            inlet_hwl = ground + wd if wd > 0 else ground
+        else:
+            inlet_hwl = round(water_out + ed.get('loss', 0), 3)
+
+        if ed['type'] == 'pump':
+            pool_bot_val = ground - wd if wd > 0 else '—'
+        else:
+            pool_bot_val = round(inlet_hwl - wd, 3) if wd > 0 else '—'
+
+        burial_depth = round(ground - pool_bot_val, 3) if isinstance(pool_bot_val, float) else '—'
+        freeboard = 0.30 if wd > 0 else '—'
+        depth_rows.append({
+            '代码': code,
+            '构筑物名称': ed['name_cn'],
+            '功能分区': ZONE_MAP.get(code, '—'),
+            '工艺类型': TYPE_CN[ed['type']],
+            '地面高程 GL(m)': ground,
+            '设计水深 WD(m)': effective_depth,
+            '进水位 HWL_in(m)': inlet_hwl,
+            '出水位 HWL_out(m)': water_out,
+            '池底高程(m)': pool_bot_val,
+            '埋深(m)\n正=地埋;负=高出地面': burial_depth,
+            '内部水头损失(m)': ed.get('loss', 0) if ed['type'] != 'pump' else '—',
+            '泵站扬程 H(m)': ed.get('pump_head', '—') if ed['type'] == 'pump' else '—',
+            '超高 fb(m)\n[GB50013规范值]': freeboard,
+            '备注': (
+                '排泥口 99.50m（见SB→STK段）' if code == 'SB' else
+                '吸水坑低于地面 0.50m' if ed['type'] == 'pump' and wd == 0 else
+                f'半地埋，地面以下 {round(100.0 - ground, 1):.1f}m' if ground < 99.5 and ed['type'] == 'end' else
+                '重力流终点' if ed['type'] == 'end' else ''
+            )
+        })
+    return pd.DataFrame(depth_rows)
+
 # ==================== 从主文件导入高程常量 ====================
-# （与 water_plant_layout_v3.py 中的 ELEVATION_DATA 完全一致）
-ELEVATION_DATA = {
-    "IPS":  {"ground": 100.0, "water_depth": 6.0,  "type": "pump",    "pump_head": 7.5,  "water_out": 107.5, "name_cn": "取水泵站"},
-    "GC":   {"ground": 103.0, "water_depth": 3.5,  "type": "gravity", "loss": 0.30,      "water_out": 107.2, "name_cn": "格栅间"},
-    "PS":   {"ground": 102.5, "water_depth": 4.0,  "type": "gravity", "loss": 0.50,      "water_out": 106.7, "name_cn": "预沉池"},
-    "MB":   {"ground": 102.0, "water_depth": 3.5,  "type": "gravity", "loss": 0.30,      "water_out": 106.4, "name_cn": "混凝池"},
-    "FB":   {"ground": 102.0, "water_depth": 3.5,  "type": "gravity", "loss": 0.50,      "water_out": 105.9, "name_cn": "絮凝池"},
-    "SB":   {"ground": 101.5, "water_depth": 4.0,  "type": "gravity", "loss": 0.40,      "water_out": 105.5, "name_cn": "沉淀池"},
-    "FT":   {"ground": 101.0, "water_depth": 5.5,  "type": "gravity", "loss": 2.00,      "water_out": 103.5, "name_cn": "滤池"},
-    "OZG":  {"ground": 100.5, "water_depth": 5.0,  "type": "gravity", "loss": 0.60,      "water_out": 102.9, "name_cn": "臭氧接触池"},
-    "ACF":  {"ground": 100.0, "water_depth": 5.0,  "type": "gravity", "loss": 1.50,      "water_out": 101.4, "name_cn": "活性炭滤池"},
-    "CWT":  {"ground":  98.0, "water_depth": 5.0,  "type": "end",     "loss": 0.0,       "water_out": 101.0, "name_cn": "清水池"},
-    "BWT":  {"ground":  99.0, "water_depth": 4.0,  "type": "end",     "loss": 0.0,       "water_out": 101.5, "name_cn": "反冲洗水池"},
-    "PH2":  {"ground": 100.0, "water_depth": 0.0,  "type": "pump",    "pump_head": 35.0, "water_out": 135.0, "name_cn": "二级泵房"},
-    "STK":  {"ground":  97.5, "water_depth": 3.5,  "type": "gravity", "loss": 0.30,      "water_out":  99.2, "name_cn": "污泥浓缩池"},
-    "SDR":  {"ground":  96.5, "water_depth": 0.0,  "type": "gravity", "loss": 0.20,      "water_out":  99.0, "name_cn": "污泥脱水机房"},
-    "SYD":  {"ground":  95.5, "water_depth": 0.0,  "type": "end",     "loss": 0.0,       "water_out":  95.5, "name_cn": "污泥堆场"},
-}
+def _load_main_layout_data():
+    """Load canonical layout/elevation data from water_plant_layout_v3.py."""
+    import contextlib
+    import copy
 
-# 工艺流程路径
-MAIN_WATER_PATH   = ["IPS", "GC", "PS", "MB", "FB", "SB", "FT", "CWT", "PH2"]
-ADVANCED_PATH     = ["FT", "OZG", "ACF", "CWT"]  # 深度处理支路
-SLUDGE_PATH       = ["SB", "STK", "SDR", "SYD"]  # 污泥处理（SB排泥口≈99.5m）
+    with contextlib.redirect_stdout(io.StringIO()):
+        from water_plant_layout_v3 import (
+            ELEVATION_DATA as MAIN_ELEVATION_DATA,
+            ELEV_SEGMENT_PARAMS as MAIN_ELEV_SEGMENT_PARAMS,
+            FACILITIES_DATA,
+            Facility,
+            GRAVITY_FLOW_SAFETY as MAIN_GRAVITY_FLOW_SAFETY,
+            MAIN_WATER_ELEV_PATH,
+            PIPE_HEADLOSS_PER_METER as MAIN_PIPE_HEADLOSS_PER_METER,
+            PIPE_LOCAL_LOSS as MAIN_PIPE_LOCAL_LOSS,
+            SB_SLUDGE_OUTLET_ELEV,
+            SLUDGE_ELEV_PATH,
+            calculate_pipeline_segment,
+            infer_pipeline_system,
+        )
 
-PIPE_HEADLOSS_PER_METER = 0.001   # 全局默认沿程损失系数
-PIPE_LOCAL_LOSS         = 0.30
-GRAVITY_FLOW_SAFETY     = 0.20
+    name_map = {code: name_cn for code, name_cn, *_ in FACILITIES_DATA}
+    elevation_data = copy.deepcopy(MAIN_ELEVATION_DATA)
+    for code, row in elevation_data.items():
+        row.setdefault("name_cn", name_map.get(code, code))
 
-# SB 底部排泥口高程（与主文件 SB_SLUDGE_OUTLET_ELEV 一致）
-SB_SLUDGE_OUTLET = 99.5
+    return {
+        "elevation_data": elevation_data,
+        "segment_params": dict(MAIN_ELEV_SEGMENT_PARAMS),
+        "pipe_headloss_per_meter": MAIN_PIPE_HEADLOSS_PER_METER,
+        "pipe_local_loss": MAIN_PIPE_LOCAL_LOSS,
+        "gravity_flow_safety": MAIN_GRAVITY_FLOW_SAFETY,
+        "sb_sludge_outlet": SB_SLUDGE_OUTLET_ELEV,
+        "main_water_pairs": list(MAIN_WATER_ELEV_PATH),
+        "sludge_pairs": list(SLUDGE_ELEV_PATH),
+        "facility_cls": Facility,
+        "facilities_data": list(FACILITIES_DATA),
+        "calculate_pipeline_segment": calculate_pipeline_segment,
+        "infer_pipeline_system": infer_pipeline_system,
+    }
 
-# 各管段精细参数（与主文件 ELEV_SEGMENT_PARAMS 同步）
-ELEV_SEGMENT_PARAMS = {
-    ("IPS", "GC"):  (0.0010, 0.20, 0.20, 2.0),
-    ("GC",  "PS"):  (0.0010, 0.30, 0.20, 2.0),
-    ("PS",  "MB"):  (0.0012, 0.30, 0.20, 2.5),
-    ("MB",  "FB"):  (0.0012, 0.25, 0.20, 2.5),
-    ("FB",  "SB"):  (0.0010, 0.30, 0.20, 2.5),
-    ("SB",  "FT"):  (0.0010, 0.30, 0.20, 2.5),
-    ("FT",  "CWT"): (0.0010, 0.25, 0.20, 2.0),
-    ("FT",  "OZG"): (0.0012, 0.30, 0.20, 1.5),
-    ("OZG", "ACF"): (0.0012, 0.30, 0.20, 1.5),
-    ("ACF", "CWT"): (0.0010, 0.25, 0.20, 1.5),
-    ("CWT", "BWT"): (0.0008, 0.20, 0.15, 0.8),
-    ("SB",  "STK"): (0.0040, 0.50, 0.30, 1.2),
-    ("STK", "SDR"): (0.0050, 0.60, 0.30, 1.2),
-    ("SDR", "SYD"): (0.0030, 0.40, 0.25, 0.8),
-}
 
-# 典型管线水平间距假设（无实际布局时使用）
+_MAIN_DATA = _load_main_layout_data()
+ELEVATION_DATA = _MAIN_DATA["elevation_data"]
+ELEV_SEGMENT_PARAMS = _MAIN_DATA["segment_params"]
+PIPE_HEADLOSS_PER_METER = _MAIN_DATA["pipe_headloss_per_meter"]
+PIPE_LOCAL_LOSS = _MAIN_DATA["pipe_local_loss"]
+GRAVITY_FLOW_SAFETY = _MAIN_DATA["gravity_flow_safety"]
+SB_SLUDGE_OUTLET = _MAIN_DATA["sb_sludge_outlet"]
+
+# 高程脚本的展示路径；节点和分段参数均来自主文件数据。
+MAIN_WATER_PATH = ["IPS", "GC", "PS", "MB", "FB", "SB", "FT", "CWT", "PH2"]
+ADVANCED_PATH = ["FT", "OZG", "ACF", "CWT"]
+SLUDGE_PATH = ["SB", "STK", "SDR", "SYD"]
+
+# 典型管线水平间距假设（无实际布局坐标时使用）。
 TYPICAL_DISTANCES = {
     ("IPS", "GC"):  30, ("GC",  "PS"):  25, ("PS",  "MB"):  20,
     ("MB",  "FB"):  15, ("FB",  "SB"):  18, ("SB",  "FT"):  15,
@@ -119,6 +194,40 @@ TYPICAL_DISTANCES = {
     ("CWT", "BWT"): 10,
     ("SB",  "STK"): 20, ("STK", "SDR"): 15, ("SDR", "SYD"): 12,
 }
+
+
+def load_segment_lengths_from_layout(layout_csv: str) -> dict:
+    """Read facility coordinates and calculate elevation segment lengths from actual layout."""
+    if not layout_csv:
+        return {}
+    df_layout = pd.read_csv(layout_csv)
+    required = {"code", "x_m", "y_m", "width_m", "height_m"}
+    if not required.issubset(df_layout.columns):
+        raise ValueError(
+            "布局CSV必须包含列: code, x_m, y_m, width_m, height_m"
+        )
+
+    facility_cls = _MAIN_DATA["facility_cls"]
+    meta = {code: (name_cn, category, safety) for code, name_cn, _, _, category, safety in _MAIN_DATA["facilities_data"]}
+    fdict = {}
+    for _, row in df_layout.iterrows():
+        code = str(row["code"])
+        name_cn, category, safety = meta.get(code, (code, "unknown", 1))
+        f = facility_cls(code, name_cn, float(row["width_m"]), float(row["height_m"]), category, int(safety))
+        f.x = float(row["x_m"])
+        f.y = float(row["y_m"])
+        f.rotated = False
+        fdict[code] = f
+
+    calc_segment = _MAIN_DATA["calculate_pipeline_segment"]
+    infer_system = _MAIN_DATA["infer_pipeline_system"]
+    segment_lengths = {}
+    for up, down in set(list(ELEV_SEGMENT_PARAMS.keys()) + _MAIN_DATA["main_water_pairs"] + _MAIN_DATA["sludge_pairs"]):
+        if up not in fdict or down not in fdict:
+            continue
+        system_name = infer_system(up, down)
+        segment_lengths[(up, down)] = calc_segment(fdict[up], fdict[down], system_name)["routed_length_m"]
+    return segment_lengths
 
 
 def calc_pipe_loss(L: float, up: str = None, down: str = None) -> float:
@@ -180,14 +289,15 @@ def check_gravity_flow(up: str, down: str, L: float = None) -> dict:
 
 
 # ==================== 生成报告数据 ====================
-def build_report():
+def build_report(segment_lengths: dict = None):
     """汇总所有重力流段的高程检查"""
+    segment_lengths = segment_lengths or {}
     rows = []
     # 主水处理（常规段）
     for i in range(len(MAIN_WATER_PATH) - 1):
         up, dn = MAIN_WATER_PATH[i], MAIN_WATER_PATH[i+1]
         if up in ELEVATION_DATA and dn in ELEVATION_DATA:
-            rows.append(("主水处理", *check_gravity_flow(up, dn).values()))
+            rows.append(("主水处理", *check_gravity_flow(up, dn, segment_lengths.get((up, dn))).values()))
 
     # 深度处理支路
     for i in range(len(ADVANCED_PATH) - 1):
@@ -197,16 +307,16 @@ def build_report():
     for i in range(1, len(ADVANCED_PATH) - 1):
         up, dn = ADVANCED_PATH[i], ADVANCED_PATH[i+1]
         if up in ELEVATION_DATA and dn in ELEVATION_DATA:
-            rows.append(("深度处理", *check_gravity_flow(up, dn).values()))
+            rows.append(("深度处理", *check_gravity_flow(up, dn, segment_lengths.get((up, dn))).values()))
 
     # FT→OZG
-    rows.append(("深度处理", *check_gravity_flow("FT", "OZG").values()))
+    rows.append(("深度处理", *check_gravity_flow("FT", "OZG", segment_lengths.get(("FT", "OZG"))).values()))
 
     # 污泥处理
     sludge_pairs = [("SB", "STK"), ("STK", "SDR"), ("SDR", "SYD")]
     for up, dn in sludge_pairs:
         if up in ELEVATION_DATA and dn in ELEVATION_DATA:
-            rows.append(("污泥处理", *check_gravity_flow(up, dn).values()))
+            rows.append(("污泥处理", *check_gravity_flow(up, dn, segment_lengths.get((up, dn))).values()))
 
     cols = ["流程类型", "上游设施", "下游设施", "上游出水位(m)", "下游进水位(m)",
             "管线长度(m)", "坡度系数i", "所需水头(m)", "可用水头(m)", "盈余(m)", "水头缺口(m)", "段权重", "是否可行", "判定"]
@@ -663,13 +773,27 @@ def plot_elevation_table(ax, df):
 
 # ==================== 主程序 ====================
 def main():
+    parser = argparse.ArgumentParser(description="供水厂竖向高程约束分析")
+    parser.add_argument("--output-dir", default=os.path.join("exports", "elevation"), help="输出目录")
+    parser.add_argument("--prefix", default="elevation", help="输出文件名前缀")
+    parser.add_argument("--dpi", type=int, default=600, help="TIFF导出分辨率")
+    parser.add_argument("--layout-csv", default=None, help="可选：主程序导出的facility_layout.csv，用实际布局长度计算高程损失")
+    parser.add_argument("--show", action="store_true", help="生成后显示合并总图窗口")
+    args = parser.parse_args()
+    os.makedirs(args.output_dir, exist_ok=True)
+
     # 1. 构建报告数据
-    df = build_report()
+    segment_lengths = load_segment_lengths_from_layout(args.layout_csv) if args.layout_csv else {}
+    df = build_report(segment_lengths)
 
     # 2. 控制台输出
     print("=" * 70)
     print("  供水厂竖向高程约束分析报告")
     print("  基准高程: ±0.000 = 100.00 m")
+    if args.layout_csv:
+        print(f"  水平管长: 已读取实际布局 {args.layout_csv}")
+    else:
+        print("  水平管长: 使用典型距离假设（未提供布局CSV）")
     print("=" * 70)
 
     # 各构筑物高程表
@@ -714,69 +838,17 @@ def main():
           f"总水头缺口 = {total_shortage:.3f}m  |  总盈余水头 = {total_surplus:.3f}m")
 
     # 3. 构建构筑物水深汇总表
-    TYPE_CN  = {'pump': '泵站↑', 'gravity': '重力流', 'end': '终点/储存'}
-    ZONE_MAP = {
-        'IPS': '取水区',   'GC': '取水区',
-        'PS':  '预处理区',
-        'MB':  '常规处理区', 'FB': '常规处理区', 'SB': '常规处理区', 'FT': '常规处理区',
-        'OZG': '深度处理区', 'ACF': '深度处理区',
-        'CWT': '送配水区',  'BWT': '送配水区',  'PH2': '送配水区',
-        'STK': '污泥处理区', 'SDR': '污泥处理区', 'SYD': '污泥处理区',
-    }
-    depth_rows = []
-    for code, ed in ELEVATION_DATA.items():
-        wd        = ed.get('water_depth', 0)
-        ground    = ed['ground']
-        water_out = ed['water_out']
-        # 有效水深（液面到池底）
-        effective_depth = wd if wd > 0 else '—'
-        # 进水位（最高水面高程）
-        if ed['type'] == 'pump':
-            inlet_hwl = ground + wd if wd > 0 else ground
-        else:
-            inlet_hwl = round(water_out + ed.get('loss', 0), 3)
+    df_depth = build_depth_report()
 
-        # 池底高程
-        if ed['type'] == 'pump':
-            pool_bot_val = ground - wd if wd > 0 else '—'
-        else:
-            pool_bot_val = round(inlet_hwl - wd, 3) if wd > 0 else '—'
+    # 4. 输出到Excel/CSV（多 Sheet）
+    report_xlsx = os.path.join(args.output_dir, f"{args.prefix}_report.xlsx")
+    report_csv = os.path.join(args.output_dir, f"{args.prefix}_gravity_flow_report.csv")
+    depth_csv = os.path.join(args.output_dir, f"{args.prefix}_structure_depth_report.csv")
+    df.to_csv(report_csv, index=False, encoding="utf-8-sig")
+    df_depth.to_csv(depth_csv, index=False, encoding="utf-8-sig")
 
-        # 埋深：池底低于地面的深度（正值=埋地, 0=齐平, 负值=高出地面）
-        if isinstance(pool_bot_val, float):
-            burial_depth = round(ground - pool_bot_val, 3)   # 正→地埋, 负→高出地面
-        else:
-            burial_depth = '—'
-
-        # 超高：规范最小设计值 ≥ 0.30m（GB50013），此列显示设计规范值，非反算值
-        freeboard = 0.30 if wd > 0 else '—'
-
-        depth_rows.append({
-            '代码':            code,
-            '构筑物名称':      ed['name_cn'],
-            '功能分区':        ZONE_MAP.get(code, '—'),
-            '工艺类型':        TYPE_CN[ed['type']],
-            '地面高程 GL(m)':  ground,
-            '设计水深 WD(m)':  effective_depth,
-            '进水位 HWL_in(m)':   inlet_hwl,
-            '出水位 HWL_out(m)':  water_out,
-            '池底高程(m)':        pool_bot_val,
-            '埋深(m)\n正=地埋;负=高出地面': burial_depth,
-            '内部水头损失(m)': ed.get('loss', 0) if ed['type'] != 'pump' else '—',
-            '泵站扬程 H(m)':   ed.get('pump_head', '—') if ed['type'] == 'pump' else '—',
-            '超高 fb(m)\n[GB50013规范值]': freeboard,
-            '备注': (
-                '排泥口 99.50m（见SB→STK段）' if code == 'SB' else
-                '吸水坑低于地面 0.50m'         if ed['type'] == 'pump' and wd == 0 else
-                f'半地埋，地面以下 {round(100.0 - ground, 1):.1f}m' if ground < 99.5 and ed['type'] == 'end' else
-                '重力流终点' if ed['type'] == 'end' else ''
-            )
-        })
-    df_depth = pd.DataFrame(depth_rows)
-
-    # 4. 输出到Excel（多 Sheet）
     try:
-        with pd.ExcelWriter("elevation_report.xlsx", engine="openpyxl") as writer:
+        with pd.ExcelWriter(report_xlsx, engine="openpyxl") as writer:
             # Sheet1：重力流可行性报告
             df.to_excel(writer, sheet_name="重力流可行性报告", index=False)
             ws1 = writer.sheets["重力流可行性报告"]
@@ -849,11 +921,13 @@ def main():
                     cell.border    = thin_border
                 ws1.row_dimensions[row_idx].height = 18
 
-        print("\n  → 已导出: elevation_report.xlsx（2个工作表）")
+        print(f"\n  → 已导出: {report_xlsx}（2个工作表）")
+        print(f"       CSV: {report_csv}")
+        print(f"       CSV: {depth_csv}")
         print("       Sheet1: 重力流可行性报告（14段）")
-        print("       Sheet2: 构筑物水深汇总表（15座构筑物）")
+        print(f"       Sheet2: 构筑物水深汇总表（{len(df_depth)}座构筑物）")
     except PermissionError:
-        print("\n  ⚠ elevation_report.xlsx 被占用，跳过导出（请关闭 Excel 后重试）")
+        print(f"\n  ⚠ {report_xlsx} 被占用，跳过Excel导出（请关闭 Excel 后重试）")
 
     # ================================================================
     # 4. 绘图 — 学术图版
@@ -862,8 +936,8 @@ def main():
     #   • 1张合并总图（180 dpi，概览用）
     # ================================================================
     print("\n  正在生成高程图...")
-    DPI_SINGLE = 300   # 学术期刊单图清晰度
-    DPI_COMBINED = 180 # 合并总图
+    DPI_SINGLE = args.dpi
+    DPI_COMBINED = min(args.dpi, 300)
 
     # ── 学术字号约定（单图放大后字号需相应调小）──
     TITLE_FS  = 12
@@ -892,10 +966,8 @@ def main():
                'Datum: ±0.000 = 100.00 m (Absolute)',
                ha='right', va='bottom', fontsize=8, color='#546E7A',
                style='italic')
-    fig_a.savefig('elevation_fig_a_main_water.png',
-                  dpi=DPI_SINGLE, bbox_inches='tight',
-                  facecolor=PALETTE['fig_bg'])
-    print('  → Fig.(a) 已保存: elevation_fig_a_main_water.png  (300 dpi)')
+    base_a = save_publication_figure(fig_a, args.output_dir, f"{args.prefix}_fig_a_main_water", DPI_SINGLE)
+    print(f'  → Fig.(a) 已保存: {base_a}.svg/.pdf/.tiff/.png')
     plt.close(fig_a)
 
     # ─────────────────────────────────────────────
@@ -916,10 +988,8 @@ def main():
                'Datum: ±0.000 = 100.00 m',
                ha='right', va='bottom', fontsize=8, color='#546E7A',
                style='italic')
-    fig_b.savefig('elevation_fig_b_sludge.png',
-                  dpi=DPI_SINGLE, bbox_inches='tight',
-                  facecolor=PALETTE['fig_bg'])
-    print('  → Fig.(b) 已保存: elevation_fig_b_sludge.png        (300 dpi)')
+    base_b = save_publication_figure(fig_b, args.output_dir, f"{args.prefix}_fig_b_sludge", DPI_SINGLE)
+    print(f'  → Fig.(b) 已保存: {base_b}.svg/.pdf/.tiff/.png')
     plt.close(fig_b)
 
     # ─────────────────────────────────────────────
@@ -936,10 +1006,8 @@ def main():
     ax_c.set_xlabel('Head  (m)', fontsize=LABEL_FS)
     ax_c.tick_params(axis='both', labelsize=TICK_FS)
     # 图例已由 plot_feasibility_bar() 内置，无需覆写
-    fig_c.savefig('elevation_fig_c_feasibility.png',
-                  dpi=DPI_SINGLE, bbox_inches='tight',
-                  facecolor=PALETTE['fig_bg'])
-    print('  → Fig.(c) 已保存: elevation_fig_c_feasibility.png   (300 dpi)')
+    base_c = save_publication_figure(fig_c, args.output_dir, f"{args.prefix}_fig_c_feasibility", DPI_SINGLE)
+    print(f'  → Fig.(c) 已保存: {base_c}.svg/.pdf/.tiff/.png')
     plt.close(fig_c)
 
     # ─────────────────────────────────────────────
@@ -953,10 +1021,8 @@ def main():
         '各构筑物竖向高程参数汇总表  (GL=地面高程, WD=设计水深, HWL=高水位；基准 ±0.000 = 100.00 m)',
         fontsize=TITLE_FS - 0.5, fontweight='bold', loc='left', pad=6
     )
-    fig_d.savefig('elevation_fig_d_table.png',
-                  dpi=DPI_SINGLE, bbox_inches='tight',
-                  facecolor=PALETTE['fig_bg'])
-    print('  → Fig.(d) 已保存: elevation_fig_d_table.png          (300 dpi)')
+    base_d = save_publication_figure(fig_d, args.output_dir, f"{args.prefix}_fig_d_table", DPI_SINGLE)
+    print(f'  → Fig.(d) 已保存: {base_d}.svg/.pdf/.tiff/.png')
     plt.close(fig_d)
 
     # ─────────────────────────────────────────────
@@ -998,10 +1064,12 @@ def main():
                           transform=fig.transFigure,
                           color='#90A4AE', lw=0.8))
 
-    fig.savefig('elevation_analysis.png', dpi=DPI_COMBINED, bbox_inches='tight',
-                facecolor=PALETTE['fig_bg'])
-    print('\n  → 合并总图已保存: elevation_analysis.png            (180 dpi)')
-    plt.show()
+    base_all = save_publication_figure(fig, args.output_dir, f"{args.prefix}_analysis", DPI_COMBINED)
+    print(f'\n  → 合并总图已保存: {base_all}.svg/.pdf/.tiff/.png')
+    if args.show:
+        plt.show()
+    else:
+        plt.close(fig)
 
 
 if __name__ == "__main__":
