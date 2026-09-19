@@ -1,0 +1,1441 @@
+{
+  "seeds": [
+    1101,
+    1102,
+    1103,
+    1104,
+    1105,
+    1106,
+    1107,
+    1108,
+    1109,
+    1110
+  ],
+  "jobs": [
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      }
+    ],
+    [
+      "baseline",
+      {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ],
+    [
+      "action",
+      {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      }
+    ]
+  ],
+  "workers": 4,
+  "facility_count": 34,
+  "boundary": null,
+  "scope": "single-instance fixed-budget paired comparison; two separate algorithm families",
+  "analysis_protocol": {
+    "primary_comparisons": [
+      "GA RRP vs GA coordinate repair scalar score",
+      "NSGA2 RRP vs NSGA2 coordinate repair hypervolume",
+      "RRP action learning vs random action scalar score"
+    ],
+    "test": "two-sided exact paired sign-flip test of mean differences; Holm correction over three primary tests",
+    "hypervolume": "four objectives divided by fixed scales; common reference 1.1 times coordinatewise maximum of union of all baseline archives, with each reference component at least 1; sensitivity factor 1.2",
+    "representative": "minimum equal-weight normalized sum; post-hoc only for NSGA2",
+    "limits": "10 paired seeds do not establish population-wide generalization, convergence, or equal search-space representation; no power claim"
+  },
+  "sources": {
+    "run_revision_final_experiments.py": "af02824931fb98e08f0e00fee2502a094284fde6939f744f34d7308265c36edf",
+    "revision_ga.py": "cd2b02d6025030ed3323e57675313f54ed71d4e627fd0752b23cd0d1119c0c8e",
+    "revision_rl.py": "58dcdd606d012cd9d914890c5af86446809551c5a3d0367eecc28c1fc96271e1",
+    "revision_pymoo_baselines.py": "4def666ab4546f77b58a1d0aa8f39936e53cb0b349c1c28b33efcb77c5232e73",
+    "revision_coordinate_repair.py": "0bc09f531921b7826e33b875e913ffb856ff39d9630a2669585965795e3a2915",
+    "revision_decoders.py": "c0d9a348bc97795962434465be37c5f3218f53c31a3223bec7b8445007511c94",
+    "revision_evaluation.py": "e3949d15b69a717241be0ae74a531420ead69b9548366b26193e4a15ab0f99b8",
+    "water_plant_layout_v3.py": "40408ca0864861c3ff0037c8a650788108a7b0e9296de77637c7c49db87fbbf3"
+  }
+}

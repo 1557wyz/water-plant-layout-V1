@@ -1,0 +1,2366 @@
+{
+  "completed": 60,
+  "planned": 60,
+  "runs": [
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1101.json.gz",
+      "metrics": {
+        "area_m2": 12480,
+        "utilization": 0.678125,
+        "pipeline_m": 691.5899999999999,
+        "weighted_pipeline_m": 1424.214,
+        "adjacency_excess_weighted_m": 5202.803680548068,
+        "adjacency_satisfaction": 0.4117647058823529,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7348000000000028
+      },
+      "score": 2.7764943680548066,
+      "runtime_seconds": 40.72375880001346,
+      "evaluations": 1536,
+      "archive_size": 6
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1101.json.gz",
+      "metrics": {
+        "area_m2": 13230,
+        "utilization": 0.6396825396825396,
+        "pipeline_m": 686.865,
+        "weighted_pipeline_m": 1517.237,
+        "adjacency_excess_weighted_m": 6025.374004357334,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.730080000000003
+      },
+      "score": 3.0017744004357336,
+      "runtime_seconds": 45.640204299998004,
+      "evaluations": 1536,
+      "archive_size": 21
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1101.json.gz",
+      "metrics": {
+        "area_m2": 12535,
+        "utilization": 0.6751495811727164,
+        "pipeline_m": 702.1650000000001,
+        "weighted_pipeline_m": 1495.5465,
+        "adjacency_excess_weighted_m": 4917.363329336598,
+        "adjacency_satisfaction": 0.35294117647058826,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.6545600000000029
+      },
+      "score": 2.8229494996003264,
+      "runtime_seconds": 55.67996680000215,
+      "evaluations": 1536,
+      "archive_size": 18
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1101.json.gz",
+      "metrics": {
+        "area_m2": 13056,
+        "utilization": 0.6482077205882353,
+        "pipeline_m": 663.885,
+        "weighted_pipeline_m": 1424.2620000000002,
+        "adjacency_excess_weighted_m": 6147.630007953525,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8008800000000029
+      },
+      "score": 2.909425000795353,
+      "runtime_seconds": 59.24419890000718,
+      "evaluations": 1536,
+      "archive_size": 16
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1101.json.gz",
+      "metrics": {
+        "area_m2": 15548.562012294255,
+        "utilization": 0.5442947066943106,
+        "pipeline_m": 854.1291529984926,
+        "weighted_pipeline_m": 1743.9262498576109,
+        "adjacency_excess_weighted_m": 5301.16817271716,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.5689741779630266
+      },
+      "score": 3.310613867948944,
+      "runtime_seconds": 109.93527509999694,
+      "evaluations": 1536,
+      "archive_size": 45
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1101,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1101.json.gz",
+      "metrics": {
+        "area_m2": 14912.95791864952,
+        "utilization": 0.5674930517584662,
+        "pipeline_m": 793.2750057408839,
+        "weighted_pipeline_m": 1585.191161085214,
+        "adjacency_excess_weighted_m": 6098.777485201432,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.5691317383036443
+      },
+      "score": 3.189266104181992,
+      "runtime_seconds": 110.10214880001149,
+      "evaluations": 1536,
+      "archive_size": 19
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1102.json.gz",
+      "metrics": {
+        "area_m2": 12276,
+        "utilization": 0.6893939393939394,
+        "pipeline_m": 725.0350000000001,
+        "weighted_pipeline_m": 1483.7714999999998,
+        "adjacency_excess_weighted_m": 7365.476654080561,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.038719165408056,
+      "runtime_seconds": 52.767591600015294,
+      "evaluations": 1536,
+      "archive_size": 25
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1102.json.gz",
+      "metrics": {
+        "area_m2": 12524,
+        "utilization": 0.6757425742574258,
+        "pipeline_m": 863.685,
+        "weighted_pipeline_m": 1911.83,
+        "adjacency_excess_weighted_m": 7342.387061532389,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.4810020394865724,
+      "runtime_seconds": 58.444311400002334,
+      "evaluations": 1536,
+      "archive_size": 8
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1102.json.gz",
+      "metrics": {
+        "area_m2": 15484.64958906352,
+        "utilization": 0.5465412666475344,
+        "pipeline_m": 558.064762247324,
+        "weighted_pipeline_m": 1199.0824733204904,
+        "adjacency_excess_weighted_m": 5121.488169122745,
+        "adjacency_satisfaction": 0.35294117647058826,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.7435412628369993,
+      "runtime_seconds": 109.04677869999432,
+      "evaluations": 1536,
+      "archive_size": 17
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1102.json.gz",
+      "metrics": {
+        "area_m2": 13209,
+        "utilization": 0.6406995230524642,
+        "pipeline_m": 697.5350000000001,
+        "weighted_pipeline_m": 1557.504,
+        "adjacency_excess_weighted_m": 6604.281388421685,
+        "adjacency_satisfaction": 0.20588235294117646,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8551600000000028
+      },
+      "score": 3.0985321388421685,
+      "runtime_seconds": 54.08021250000456,
+      "evaluations": 1536,
+      "archive_size": 14
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1102.json.gz",
+      "metrics": {
+        "area_m2": 16364.004444284787,
+        "utilization": 0.5171717001675434,
+        "pipeline_m": 624.6336737346564,
+        "weighted_pipeline_m": 1275.6124503751234,
+        "adjacency_excess_weighted_m": 5731.349099124995,
+        "adjacency_satisfaction": 0.38235294117647056,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.9396809899066088,
+      "runtime_seconds": 114.26081060001161,
+      "evaluations": 1536,
+      "archive_size": 29
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1102,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1102.json.gz",
+      "metrics": {
+        "area_m2": 12720,
+        "utilization": 0.6653301886792453,
+        "pipeline_m": 747.4200000000001,
+        "weighted_pipeline_m": 1530.759,
+        "adjacency_excess_weighted_m": 5520.868336687014,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.6592800000000028
+      },
+      "score": 2.9308458336687013,
+      "runtime_seconds": 62.520613100001356,
+      "evaluations": 1536,
+      "archive_size": 15
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1103.json.gz",
+      "metrics": {
+        "area_m2": 12740,
+        "utilization": 0.6642857142857143,
+        "pipeline_m": 586.835,
+        "weighted_pipeline_m": 1340.1895000000002,
+        "adjacency_excess_weighted_m": 6451.626257111157,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.834685459044449,
+      "runtime_seconds": 52.05236120001064,
+      "evaluations": 1536,
+      "archive_size": 11
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1103.json.gz",
+      "metrics": {
+        "area_m2": 12848,
+        "utilization": 0.6587017434620175,
+        "pipeline_m": 794.365,
+        "weighted_pipeline_m": 1622.4375,
+        "adjacency_excess_weighted_m": 6821.131559720372,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8292000000000028
+      },
+      "score": 3.1610839893053706,
+      "runtime_seconds": 53.42318310000701,
+      "evaluations": 1536,
+      "archive_size": 10
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1103.json.gz",
+      "metrics": {
+        "area_m2": 12445,
+        "utilization": 0.680032141422258,
+        "pipeline_m": 798.205,
+        "weighted_pipeline_m": 1619.9695,
+        "adjacency_excess_weighted_m": 5993.132509835487,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7348000000000028
+      },
+      "score": 3.048949417650215,
+      "runtime_seconds": 54.658172399998875,
+      "evaluations": 1536,
+      "archive_size": 12
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1103.json.gz",
+      "metrics": {
+        "area_m2": 12789,
+        "utilization": 0.6617405582922824,
+        "pipeline_m": 731.595,
+        "weighted_pipeline_m": 1691.8975,
+        "adjacency_excess_weighted_m": 7242.668497213995,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.5412800000000029
+      },
+      "score": 3.2687643497213994,
+      "runtime_seconds": 48.62807750000502,
+      "evaluations": 1536,
+      "archive_size": 16
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1103.json.gz",
+      "metrics": {
+        "area_m2": 16255.249148107248,
+        "utilization": 0.5206318231662064,
+        "pipeline_m": 607.4468074975593,
+        "weighted_pipeline_m": 1290.3018858375494,
+        "adjacency_excess_weighted_m": 4497.524743455879,
+        "adjacency_satisfaction": 0.35294117647058826,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.8237376367236204,
+      "runtime_seconds": 124.07988309999928,
+      "evaluations": 1536,
+      "archive_size": 26
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1103,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1103.json.gz",
+      "metrics": {
+        "area_m2": 16011.17099698064,
+        "utilization": 0.5285684602079347,
+        "pipeline_m": 634.5674105172019,
+        "weighted_pipeline_m": 1333.7511809948005,
+        "adjacency_excess_weighted_m": 4872.355473216397,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7009640582003296
+      },
+      "score": 2.8883981281151496,
+      "runtime_seconds": 117.08743250000407,
+      "evaluations": 1536,
+      "archive_size": 18
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1104.json.gz",
+      "metrics": {
+        "area_m2": 12460,
+        "utilization": 0.6792134831460674,
+        "pipeline_m": 808.9849999999999,
+        "weighted_pipeline_m": 1742.873,
+        "adjacency_excess_weighted_m": 6778.863812872161,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.251426047953883,
+      "runtime_seconds": 53.031887899996946,
+      "evaluations": 1536,
+      "archive_size": 6
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1104.json.gz",
+      "metrics": {
+        "area_m2": 12240,
+        "utilization": 0.691421568627451,
+        "pipeline_m": 929.76,
+        "weighted_pipeline_m": 2017.1385000000005,
+        "adjacency_excess_weighted_m": 6096.98170749098,
+        "adjacency_satisfaction": 0.35294117647058826,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7843600000000028
+      },
+      "score": 3.4428366707490987,
+      "runtime_seconds": 54.42071880001458,
+      "evaluations": 1536,
+      "archive_size": 9
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1104.json.gz",
+      "metrics": {
+        "area_m2": 12496,
+        "utilization": 0.6772567221510883,
+        "pipeline_m": 890.1099999999999,
+        "weighted_pipeline_m": 1848.786,
+        "adjacency_excess_weighted_m": 7009.364779030598,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.5908400000000029
+      },
+      "score": 3.3827891445697267,
+      "runtime_seconds": 57.84277600000496,
+      "evaluations": 1536,
+      "archive_size": 13
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1104.json.gz",
+      "metrics": {
+        "area_m2": 16011.007216408689,
+        "utilization": 0.5285738670660767,
+        "pipeline_m": 526.4703984886928,
+        "weighted_pipeline_m": 1137.3714174922943,
+        "adjacency_excess_weighted_m": 5822.988147072285,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.806929822961878
+      },
+      "score": 2.7870707132934354,
+      "runtime_seconds": 116.60489399998914,
+      "evaluations": 1536,
+      "archive_size": 24
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1104.json.gz",
+      "metrics": {
+        "area_m2": 16036.983992079755,
+        "utilization": 0.5277176808419621,
+        "pipeline_m": 640.9840303091542,
+        "weighted_pipeline_m": 1183.2738150925702,
+        "adjacency_excess_weighted_m": 5839.557558863967,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7819683570122391
+      },
+      "score": 2.836361837117617,
+      "runtime_seconds": 118.70677709998563,
+      "evaluations": 1536,
+      "archive_size": 39
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1104,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1104.json.gz",
+      "metrics": {
+        "area_m2": 12852,
+        "utilization": 0.6584967320261438,
+        "pipeline_m": 549.48,
+        "weighted_pipeline_m": 1266.275,
+        "adjacency_excess_weighted_m": 6382.108718388349,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.761285871838835,
+      "runtime_seconds": 58.46301410000888,
+      "evaluations": 1536,
+      "archive_size": 15
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1105.json.gz",
+      "metrics": {
+        "area_m2": 12390,
+        "utilization": 0.6830508474576271,
+        "pipeline_m": 974.75,
+        "weighted_pipeline_m": 2145.1785,
+        "adjacency_excess_weighted_m": 7841.237389569472,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7702000000000029
+      },
+      "score": 3.755302238956947,
+      "runtime_seconds": 55.44547249999596,
+      "evaluations": 1536,
+      "archive_size": 7
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1105.json.gz",
+      "metrics": {
+        "area_m2": 12483,
+        "utilization": 0.6779620283585677,
+        "pipeline_m": 729.2049999999999,
+        "weighted_pipeline_m": 1515.3555000000001,
+        "adjacency_excess_weighted_m": 5582.031408619554,
+        "adjacency_satisfaction": 0.17647058823529413,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8339200000000029
+      },
+      "score": 2.9057586408619556,
+      "runtime_seconds": 53.697784799995134,
+      "evaluations": 1536,
+      "archive_size": 11
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1105.json.gz",
+      "metrics": {
+        "area_m2": 13200,
+        "utilization": 0.6411363636363636,
+        "pipeline_m": 755.825,
+        "weighted_pipeline_m": 1575.6775,
+        "adjacency_excess_weighted_m": 6140.525337870065,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7725600000000028
+      },
+      "score": 3.069730033787007,
+      "runtime_seconds": 55.761181799985934,
+      "evaluations": 1536,
+      "archive_size": 12
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1105.json.gz",
+      "metrics": {
+        "area_m2": 12656,
+        "utilization": 0.6686946902654868,
+        "pipeline_m": 948.085,
+        "weighted_pipeline_m": 2125.2955,
+        "adjacency_excess_weighted_m": 8318.051729314117,
+        "adjacency_satisfaction": 0.20588235294117646,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7536800000000028
+      },
+      "score": 3.800834006264745,
+      "runtime_seconds": 46.837174999993294,
+      "evaluations": 1536,
+      "archive_size": 8
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1105.json.gz",
+      "metrics": {
+        "area_m2": 16135.223466079853,
+        "utilization": 0.5245046663153613,
+        "pipeline_m": 767.8058391924259,
+        "weighted_pipeline_m": 1632.5772761341582,
+        "adjacency_excess_weighted_m": 7052.17901051105,
+        "adjacency_satisfaction": 0.14705882352941177,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7574955520624016
+      },
+      "score": 3.4134767415905864,
+      "runtime_seconds": 110.25706450000871,
+      "evaluations": 1536,
+      "archive_size": 24
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1105,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1105.json.gz",
+      "metrics": {
+        "area_m2": 16394.919911359513,
+        "utilization": 0.5161964831640476,
+        "pipeline_m": 660.0915326093162,
+        "weighted_pipeline_m": 1323.7214911322421,
+        "adjacency_excess_weighted_m": 4490.793372311097,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8636017386361976
+      },
+      "score": 2.8657954891206527,
+      "runtime_seconds": 122.8615289000154,
+      "evaluations": 1536,
+      "archive_size": 29
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1106.json.gz",
+      "metrics": {
+        "area_m2": 12896,
+        "utilization": 0.65625,
+        "pipeline_m": 959.895,
+        "weighted_pipeline_m": 2112.5465000000004,
+        "adjacency_excess_weighted_m": 6456.895326795549,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.617969366012889,
+      "runtime_seconds": 46.172505200025626,
+      "evaluations": 1536,
+      "archive_size": 10
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1106.json.gz",
+      "metrics": {
+        "area_m2": 12826,
+        "utilization": 0.6598315920785903,
+        "pipeline_m": 1065.695,
+        "weighted_pipeline_m": 2224.401,
+        "adjacency_excess_weighted_m": 6980.1449454273625,
+        "adjacency_satisfaction": 0.38235294117647056,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.857520000000003
+      },
+      "score": 3.7774821612094027,
+      "runtime_seconds": 53.3081313999719,
+      "evaluations": 1536,
+      "archive_size": 9
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1106.json.gz",
+      "metrics": {
+        "area_m2": 12688,
+        "utilization": 0.6670081967213115,
+        "pipeline_m": 757.2950000000001,
+        "weighted_pipeline_m": 1619.4795,
+        "adjacency_excess_weighted_m": 6200.912999318024,
+        "adjacency_satisfaction": 0.20588235294117646,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8056000000000028
+      },
+      "score": 3.085437466598469,
+      "runtime_seconds": 49.4256211000029,
+      "evaluations": 1536,
+      "archive_size": 13
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1106.json.gz",
+      "metrics": {
+        "area_m2": 16933.862792126656,
+        "utilization": 0.49976783820020343,
+        "pipeline_m": 680.2384160128137,
+        "weighted_pipeline_m": 1545.1738955214714,
+        "adjacency_excess_weighted_m": 6869.290765159105,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.361027158179159,
+      "runtime_seconds": 120.57367189999786,
+      "evaluations": 1536,
+      "archive_size": 19
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1106.json.gz",
+      "metrics": {
+        "area_m2": 15055.236917901137,
+        "utilization": 0.562129978169738,
+        "pipeline_m": 695.711779224089,
+        "weighted_pipeline_m": 1507.8551067661087,
+        "adjacency_excess_weighted_m": 5787.98076260657,
+        "adjacency_satisfaction": 0.20588235294117646,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7828110358637026
+      },
+      "score": 3.090335644220175,
+      "runtime_seconds": 114.41933370000334,
+      "evaluations": 1536,
+      "archive_size": 31
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1106,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1106.json.gz",
+      "metrics": {
+        "area_m2": 12705,
+        "utilization": 0.6661157024793388,
+        "pipeline_m": 782.85,
+        "weighted_pipeline_m": 1722.54,
+        "adjacency_excess_weighted_m": 7167.205369001191,
+        "adjacency_satisfaction": 0.17647058823529413,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.286260536900119,
+      "runtime_seconds": 61.018121800007066,
+      "evaluations": 1536,
+      "archive_size": 18
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1107.json.gz",
+      "metrics": {
+        "area_m2": 14065,
+        "utilization": 0.6017063633131887,
+        "pipeline_m": 1014.655,
+        "weighted_pipeline_m": 1988.324,
+        "adjacency_excess_weighted_m": 5451.630685577106,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.6687200000000029
+      },
+      "score": 3.4711537352243775,
+      "runtime_seconds": 56.005476599995745,
+      "evaluations": 1536,
+      "archive_size": 17
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1107.json.gz",
+      "metrics": {
+        "area_m2": 12730,
+        "utilization": 0.6648075412411626,
+        "pipeline_m": 842.3700000000001,
+        "weighted_pipeline_m": 2055.6925,
+        "adjacency_excess_weighted_m": 7742.257506686458,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8386400000000029
+      },
+      "score": 3.6785849173353125,
+      "runtime_seconds": 61.230773799994495,
+      "evaluations": 1536,
+      "archive_size": 11
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1107.json.gz",
+      "metrics": {
+        "area_m2": 15283.873551467133,
+        "utilization": 0.5537208857101292,
+        "pipeline_m": 783.1739228037153,
+        "weighted_pipeline_m": 1501.0449310319777,
+        "adjacency_excess_weighted_m": 5679.213970164061,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7549898728350595
+      },
+      "score": 3.087891231479526,
+      "runtime_seconds": 117.30948150000768,
+      "evaluations": 1536,
+      "archive_size": 22
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1107.json.gz",
+      "metrics": {
+        "area_m2": 15529.184072775326,
+        "utilization": 0.5449738994875292,
+        "pipeline_m": 616.7792099765693,
+        "weighted_pipeline_m": 1321.5268793846412,
+        "adjacency_excess_weighted_m": 5158.152966513169,
+        "adjacency_satisfaction": 0.35294117647058826,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7809020595501517
+      },
+      "score": 2.87262111422098,
+      "runtime_seconds": 120.11095980001846,
+      "evaluations": 1536,
+      "archive_size": 18
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1107.json.gz",
+      "metrics": {
+        "area_m2": 12760,
+        "utilization": 0.663244514106583,
+        "pipeline_m": 727.0350000000001,
+        "weighted_pipeline_m": 1612.1365,
+        "adjacency_excess_weighted_m": 7194.329201829161,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7182800000000029
+      },
+      "score": 3.182236086849583,
+      "runtime_seconds": 61.50477840000531,
+      "evaluations": 1536,
+      "archive_size": 13
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1107,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1107.json.gz",
+      "metrics": {
+        "area_m2": 12690,
+        "utilization": 0.666903073286052,
+        "pipeline_m": 955.3400000000001,
+        "weighted_pipeline_m": 2064.8285,
+        "adjacency_excess_weighted_m": 7922.071366348026,
+        "adjacency_satisfaction": 0.20588235294117646,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.7030356366348025,
+      "runtime_seconds": 64.19605329999467,
+      "evaluations": 1536,
+      "archive_size": 15
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1108.json.gz",
+      "metrics": {
+        "area_m2": 13287,
+        "utilization": 0.6369383608037932,
+        "pipeline_m": 1016.14,
+        "weighted_pipeline_m": 2088.9925000000003,
+        "adjacency_excess_weighted_m": 6895.145918692528,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.6545600000000029
+      },
+      "score": 3.664307091869253,
+      "runtime_seconds": 55.70960209998884,
+      "evaluations": 1536,
+      "archive_size": 15
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1108.json.gz",
+      "metrics": {
+        "area_m2": 13221,
+        "utilization": 0.640117994100295,
+        "pipeline_m": 992.2,
+        "weighted_pipeline_m": 2009.7105000000001,
+        "adjacency_excess_weighted_m": 6944.318673904215,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.5855423673904214,
+      "runtime_seconds": 59.001679800014244,
+      "evaluations": 1536,
+      "archive_size": 21
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1108.json.gz",
+      "metrics": {
+        "area_m2": 14473.699374213185,
+        "utilization": 0.5847157510455107,
+        "pipeline_m": 742.8158315625926,
+        "weighted_pipeline_m": 1496.6204950361562,
+        "adjacency_excess_weighted_m": 5773.44088925861,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.6866838146644878
+      },
+      "score": 3.0388778755762296,
+      "runtime_seconds": 125.27187050000066,
+      "evaluations": 1536,
+      "archive_size": 21
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1108.json.gz",
+      "metrics": {
+        "area_m2": 13200,
+        "utilization": 0.6411363636363636,
+        "pipeline_m": 608.2750000000001,
+        "weighted_pipeline_m": 1271.509,
+        "adjacency_excess_weighted_m": 5855.2044501794935,
+        "adjacency_satisfaction": 0.4117647058823529,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.7370294450179493,
+      "runtime_seconds": 55.568865499983076,
+      "evaluations": 1536,
+      "archive_size": 17
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1108.json.gz",
+      "metrics": {
+        "area_m2": 12710,
+        "utilization": 0.6658536585365854,
+        "pipeline_m": 788.26,
+        "weighted_pipeline_m": 1809.0065,
+        "adjacency_excess_weighted_m": 6990.208249242663,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7466000000000028
+      },
+      "score": 3.3553606582575997,
+      "runtime_seconds": 63.187642500008224,
+      "evaluations": 1536,
+      "archive_size": 8
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1108,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1108.json.gz",
+      "metrics": {
+        "area_m2": 14742.771810372233,
+        "utilization": 0.5740440202734388,
+        "pipeline_m": 656.9444987883983,
+        "weighted_pipeline_m": 1424.580277267756,
+        "adjacency_excess_weighted_m": 5301.051442319864,
+        "adjacency_satisfaction": 0.47058823529411764,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.937536875524558,
+      "runtime_seconds": 130.1252692999842,
+      "evaluations": 1536,
+      "archive_size": 50
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1109.json.gz",
+      "metrics": {
+        "area_m2": 13068,
+        "utilization": 0.6476124885215794,
+        "pipeline_m": 975.1299999999999,
+        "weighted_pipeline_m": 2129.8010000000004,
+        "adjacency_excess_weighted_m": 8017.2132456166155,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.6451200000000028
+      },
+      "score": 3.802722324561662,
+      "runtime_seconds": 57.74005789999501,
+      "evaluations": 1536,
+      "archive_size": 14
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1109.json.gz",
+      "metrics": {
+        "area_m2": 13795,
+        "utilization": 0.6134831460674157,
+        "pipeline_m": 877.9850000000001,
+        "weighted_pipeline_m": 1724.3595,
+        "adjacency_excess_weighted_m": 6242.985734366018,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7772800000000029
+      },
+      "score": 3.2683247401032682,
+      "runtime_seconds": 59.50158890002058,
+      "evaluations": 1536,
+      "archive_size": 14
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1109.json.gz",
+      "metrics": {
+        "area_m2": 15528.883352090234,
+        "utilization": 0.5449844530425206,
+        "pipeline_m": 564.3073059418329,
+        "weighted_pipeline_m": 1263.1612934688294,
+        "adjacency_excess_weighted_m": 4991.537894718697,
+        "adjacency_satisfaction": 0.35294117647058826,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7686922959480478
+      },
+      "score": 2.797573973080048,
+      "runtime_seconds": 122.49414329999126,
+      "evaluations": 1536,
+      "archive_size": 19
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1109.json.gz",
+      "metrics": {
+        "area_m2": 13161,
+        "utilization": 0.6430362434465466,
+        "pipeline_m": 657.125,
+        "weighted_pipeline_m": 1254.824,
+        "adjacency_excess_weighted_m": 4711.967069195278,
+        "adjacency_satisfaction": 0.38235294117647056,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.603420706919528,
+      "runtime_seconds": 56.84151379999821,
+      "evaluations": 1536,
+      "archive_size": 18
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1109.json.gz",
+      "metrics": {
+        "area_m2": 16326.809604920058,
+        "utilization": 0.5183498922808342,
+        "pipeline_m": 686.489828710254,
+        "weighted_pipeline_m": 1469.3737423325733,
+        "adjacency_excess_weighted_m": 6178.84255397302,
+        "adjacency_satisfaction": 0.2647058823529412,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.1757119713912125,
+      "runtime_seconds": 121.02904659998603,
+      "evaluations": 1536,
+      "archive_size": 44
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1109,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1109.json.gz",
+      "metrics": {
+        "area_m2": 12120,
+        "utilization": 0.6982673267326732,
+        "pipeline_m": 703.26,
+        "weighted_pipeline_m": 1401.1115,
+        "adjacency_excess_weighted_m": 5313.854580092282,
+        "adjacency_satisfaction": 0.29411764705882354,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7041200000000027
+      },
+      "score": 2.740496958009228,
+      "runtime_seconds": 63.20633610000368,
+      "evaluations": 1536,
+      "archive_size": 5
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_rrp_1110.json.gz",
+      "metrics": {
+        "area_m2": 13015,
+        "utilization": 0.6502497118709182,
+        "pipeline_m": 876.5,
+        "weighted_pipeline_m": 1968.6130000000003,
+        "adjacency_excess_weighted_m": 6726.733280781767,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8008800000000029
+      },
+      "score": 3.5089529947448437,
+      "runtime_seconds": 58.92300909999176,
+      "evaluations": 1536,
+      "archive_size": 12
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "rrp",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 1,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_rrp_1110.json.gz",
+      "metrics": {
+        "area_m2": 14550,
+        "utilization": 0.5816494845360825,
+        "pipeline_m": 592.4200000000001,
+        "weighted_pipeline_m": 1242.136,
+        "adjacency_excess_weighted_m": 7122.524448458734,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.9243884448458735,
+      "runtime_seconds": 59.03765499999281,
+      "evaluations": 1536,
+      "archive_size": 25
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "decoder": "rrp",
+        "controller": "random",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_random_rrp_1110.json.gz",
+      "metrics": {
+        "area_m2": 12558,
+        "utilization": 0.6739130434782609,
+        "pipeline_m": 741.8100000000001,
+        "weighted_pipeline_m": 1531.6645,
+        "adjacency_excess_weighted_m": 6428.296681192298,
+        "adjacency_satisfaction": 0.3235294117647059,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.7206400000000028
+      },
+      "score": 3.01169416811923,
+      "runtime_seconds": 52.44779090001248,
+      "evaluations": 1536,
+      "archive_size": 11
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "ga",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_ga_coordinate_repair_1110.json.gz",
+      "metrics": {
+        "area_m2": 15415.48030729465,
+        "utilization": 0.5489935980778545,
+        "pipeline_m": 511.2529587664487,
+        "weighted_pipeline_m": 1014.9378966670804,
+        "adjacency_excess_weighted_m": 4199.2123131706785,
+        "adjacency_satisfaction": 0.5,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 2.462557815137125,
+      "runtime_seconds": 121.63439349998953,
+      "evaluations": 1536,
+      "archive_size": 10
+    },
+    {
+      "family": "baseline",
+      "settings": {
+        "algorithm": "nsga2",
+        "decoder": "coordinate_repair",
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ],
+        "coordinate_scale_factor": 0.75,
+        "initialization": "random"
+      },
+      "file": "baseline_nsga2_coordinate_repair_1110.json.gz",
+      "metrics": {
+        "area_m2": 18948.362582675047,
+        "utilization": 0.44663489856046606,
+        "pipeline_m": 790.9608854809071,
+        "weighted_pipeline_m": 1815.312394387022,
+        "adjacency_excess_weighted_m": 6748.914025858204,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.5321006689770533
+      },
+      "score": 3.753427969151179,
+      "runtime_seconds": 111.31565089998185,
+      "evaluations": 1536,
+      "archive_size": 43
+    },
+    {
+      "family": "action",
+      "settings": {
+        "population": 16,
+        "evaluation_budget": 1536,
+        "seed": 1110,
+        "decoder": "rrp",
+        "controller": "q_learning",
+        "weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "scales": [
+          15000,
+          1000,
+          10000,
+          1
+        ]
+      },
+      "file": "action_q_learning_rrp_1110.json.gz",
+      "metrics": {
+        "area_m2": 13248,
+        "utilization": 0.6388134057971014,
+        "pipeline_m": 829.115,
+        "weighted_pipeline_m": 1856.5790000000002,
+        "adjacency_excess_weighted_m": 6911.30939617389,
+        "adjacency_satisfaction": 0.23529411764705882,
+        "hydraulic_shortage_m": 0,
+        "hydraulic_violating_segments": 0,
+        "minimum_head_margin_m": 0.8669600000000028
+      },
+      "score": 3.430909939617389,
+      "runtime_seconds": 54.86551740000141,
+      "evaluations": 1536,
+      "archive_size": 16
+    }
+  ]
+}

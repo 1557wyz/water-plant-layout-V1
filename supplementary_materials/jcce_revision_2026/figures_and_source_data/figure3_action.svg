@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="416.16pt" height="136.368pt" viewBox="0 0 416.16 136.368" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-13T12:54:20.483837</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 136.368 
+L 416.16 136.368 
+L 416.16 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 15.2352 76.72176 
+L 115.6752 76.72176 
+L 115.6752 53.54784 
+L 15.2352 53.54784 
+z
+" clip-path="url(#p7ce9c0100d)" style="fill: #eef1f3; stroke: #667582; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 159.8688 76.72176 
+L 260.3088 76.72176 
+L 260.3088 53.54784 
+L 159.8688 53.54784 
+z
+" clip-path="url(#p7ce9c0100d)" style="fill: #eef1f3; stroke: #667582; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 300.4848 76.72176 
+L 400.9248 76.72176 
+L 400.9248 53.54784 
+L 300.4848 53.54784 
+z
+" clip-path="url(#p7ce9c0100d)" style="fill: #eef1f3; stroke: #667582; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(32.9952 62.853862)">Order and rotation</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(28.772075 71.560894)">Crossover candidate</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(185.19005 62.853862)">Observe state</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(172.0663 71.560894)">Choose one mutation</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(325.801675 62.851597)">Evaluate child</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(315.3498 71.558628)">Update action value</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 117.673946 65.74464 
+Q 137.770842 65.74464 156.749704 65.74464 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 153.549704 64.14464 
+L 156.749704 65.74464 
+L 153.549704 67.34464 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 262.304849 65.74464 
+Q 280.395117 65.74464 297.367352 65.74464 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+    <path d="M 294.167352 64.14464 
+L 297.367352 65.74464 
+L 294.167352 67.34464 
+" style="fill: none; stroke: #000000; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(61.121875 99.726252)">Accept the better candidate; replace the worst population member only if improved.</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(77.794375 108.43344)">Every crossover and mutation evaluation counts toward the same budget.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7ce9c0100d">
+   <rect x="7.2" y="7.2" width="401.76" height="121.968"/>
+  </clipPath>
+ </defs>
+</svg>

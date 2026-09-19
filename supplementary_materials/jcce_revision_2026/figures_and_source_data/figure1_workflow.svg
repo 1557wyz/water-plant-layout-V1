@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="416.16pt" height="147.456pt" viewBox="0 0 416.16 147.456" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-13T12:54:19.412256</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 147.456 
+L 416.16 147.456 
+L 416.16 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 11.2176 87.0336 
+L 107.64 87.0336 
+L 107.64 61.75296 
+L 11.2176 61.75296 
+z
+" clip-path="url(#pab029645d5)" style="fill: #eef1f3; stroke: #667582; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 155.8512 87.0336 
+L 252.2736 87.0336 
+L 252.2736 61.75296 
+L 155.8512 61.75296 
+z
+" clip-path="url(#pab029645d5)" style="fill: #eef1f3; stroke: #667582; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 300.4848 87.0336 
+L 396.9072 87.0336 
+L 396.9072 61.75296 
+L 300.4848 61.75296 
+z
+" clip-path="url(#pab029645d5)" style="fill: #eef1f3; stroke: #667582; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(39.64255 72.109999)">34 facilities</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(24.971925 80.81703)">Geometry and links</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(169.3774 72.109999)">Layout construction</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(159.895525 80.817186)">RRP or coordinate repair</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(314.905375 72.109999)">Common evaluator</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(306.012875 80.81703)">Four physical objectives</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 109.638011 74.39328 
+Q 131.744692 74.39328 152.73334 74.39328 
+" style="fill: none; stroke: #444444; stroke-linecap: round"/>
+    <path d="M 149.53334 72.79328 
+L 152.73334 74.39328 
+L 149.53334 75.99328 
+" style="fill: none; stroke: #444444; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 254.271611 74.39328 
+Q 276.378292 74.39328 297.36694 74.39328 
+" style="fill: none; stroke: #444444; stroke-linecap: round"/>
+    <path d="M 294.16694 72.79328 
+L 297.36694 74.39328 
+L 294.16694 75.99328 
+" style="fill: none; stroke: #444444; stroke-linecap: round"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(101.356775 119.344801)">GA uses a scalar score; NSGA-II uses rank and crowding.</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans', sans-serif" transform="translate(83.56115 128.051988)">A separate paired experiment tests immediate action-value learning.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pab029645d5">
+   <rect x="7.2" y="7.2" width="401.76" height="133.056"/>
+  </clipPath>
+ </defs>
+</svg>

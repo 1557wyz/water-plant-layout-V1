@@ -1,0 +1,727 @@
+{
+  "status": "FEASIBLE",
+  "wall_seconds": 300.0914794,
+  "solver_bound": 9210.0,
+  "events": [
+    {
+      "seconds": 0.2878953999897931,
+      "area": 13135.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.39852970000356436,
+      "area": 12810.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.45101039999281056,
+      "area": 12090.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.6660090000077616,
+      "area": 12084.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.6706144000054337,
+      "area": 11966.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.732485499989707,
+      "area": 11840.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.7408545000071172,
+      "area": 11803.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 0.9230715000012424,
+      "area": 11395.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 1.433044700010214,
+      "area": 11180.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 5.640794000006281,
+      "area": 11076.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 5.967710700002499,
+      "area": 11024.0,
+      "bound": 9175.0
+    },
+    {
+      "seconds": 22.775697800010676,
+      "area": 10965.0,
+      "bound": 9178.0
+    },
+    {
+      "seconds": 23.300618899986148,
+      "area": 10863.0,
+      "bound": 9178.0
+    },
+    {
+      "seconds": 89.90810209998745,
+      "area": 10812.0,
+      "bound": 9206.0
+    }
+  ],
+  "response_stats": "CpSolverResponse summary:\nstatus: FEASIBLE\nobjective: 10812\nbest_bound: 9210\nintegers: 0\nbooleans: 0\nconflicts: 0\nbranches: 0\npropagations: 0\ninteger_propagations: 0\nrestarts: 0\nlp_iterations: 0\nwalltime: 300.091\nusertime: 300.091\ndeterministic_time: 576.045\ngap_integral: 4253.69\nsolution_fingerprint: 0xf52bd78b53ff8a\n",
+  "lower_bound": 9210.0,
+  "upper_bound": 10812.0,
+  "evaluation": {
+    "version": "revision-evaluation-v2",
+    "geometric_feasible": true,
+    "feasible": true,
+    "errors": [],
+    "metrics": {
+      "area_m2": 10812,
+      "utilization": 0.782741398446171,
+      "pipeline_m": 1769.805,
+      "weighted_pipeline_m": 3815.5650000000005,
+      "adjacency_excess_weighted_m": 15805.706882654866,
+      "adjacency_satisfaction": 0.20588235294117646,
+      "hydraulic_shortage_m": 0,
+      "hydraulic_violating_segments": 0,
+      "minimum_head_margin_m": 0.5247600000000028
+    },
+    "objectives": [
+      10812,
+      3815.5650000000005,
+      15805.706882654866,
+      0
+    ],
+    "adjacency": [
+      {
+        "from": "IPS",
+        "to": "GC",
+        "distance_m": 1.0,
+        "weight": 15,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "GC",
+        "to": "PS",
+        "distance_m": 16.0,
+        "weight": 15,
+        "satisfied": false,
+        "weighted_excess_m": 165.0
+      },
+      {
+        "from": "PS",
+        "to": "MB",
+        "distance_m": 65.11528238439882,
+        "weight": 15,
+        "satisfied": false,
+        "weighted_excess_m": 901.7292357659824
+      },
+      {
+        "from": "MB",
+        "to": "FB",
+        "distance_m": 25.0,
+        "weight": 15,
+        "satisfied": false,
+        "weighted_excess_m": 300.0
+      },
+      {
+        "from": "FB",
+        "to": "SB",
+        "distance_m": 1.0,
+        "weight": 15,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "SB",
+        "to": "FT",
+        "distance_m": 134.0,
+        "weight": 15,
+        "satisfied": false,
+        "weighted_excess_m": 1935.0
+      },
+      {
+        "from": "FT",
+        "to": "CWT",
+        "distance_m": 97.0,
+        "weight": 15,
+        "satisfied": false,
+        "weighted_excess_m": 1380.0
+      },
+      {
+        "from": "CWT",
+        "to": "PH2",
+        "distance_m": 16.0,
+        "weight": 12,
+        "satisfied": false,
+        "weighted_excess_m": 132.0
+      },
+      {
+        "from": "FT",
+        "to": "OZG",
+        "distance_m": 133.00375934536586,
+        "weight": 10,
+        "satisfied": false,
+        "weighted_excess_m": 1280.0375934536587
+      },
+      {
+        "from": "OZG",
+        "to": "ACF",
+        "distance_m": 39.0,
+        "weight": 12,
+        "satisfied": false,
+        "weighted_excess_m": 408.0
+      },
+      {
+        "from": "ACF",
+        "to": "CWT",
+        "distance_m": 12.083045973594572,
+        "weight": 10,
+        "satisfied": false,
+        "weighted_excess_m": 70.83045973594572
+      },
+      {
+        "from": "CDR",
+        "to": "MB",
+        "distance_m": 52.392747589718944,
+        "weight": 8,
+        "satisfied": false,
+        "weighted_excess_m": 379.14198071775155
+      },
+      {
+        "from": "CDR",
+        "to": "FB",
+        "distance_m": 90.0499861188218,
+        "weight": 6,
+        "satisfied": false,
+        "weighted_excess_m": 510.29991671293084
+      },
+      {
+        "from": "CLS",
+        "to": "CWT",
+        "distance_m": 29.68164415931166,
+        "weight": 8,
+        "satisfied": false,
+        "weighted_excess_m": 197.45315327449327
+      },
+      {
+        "from": "OZR",
+        "to": "OZG",
+        "distance_m": 168.51409436602032,
+        "weight": 10,
+        "satisfied": false,
+        "weighted_excess_m": 1635.1409436602032
+      },
+      {
+        "from": "LAB",
+        "to": "CDR",
+        "distance_m": 25.298221281347036,
+        "weight": 5,
+        "satisfied": false,
+        "weighted_excess_m": 101.49110640673518
+      },
+      {
+        "from": "CST",
+        "to": "CDR",
+        "distance_m": 92.0,
+        "weight": 6,
+        "satisfied": false,
+        "weighted_excess_m": 522.0
+      },
+      {
+        "from": "SB",
+        "to": "STK",
+        "distance_m": 69.1158447825099,
+        "weight": 8,
+        "satisfied": false,
+        "weighted_excess_m": 512.9267582600792
+      },
+      {
+        "from": "STK",
+        "to": "SDR",
+        "distance_m": 2.0,
+        "weight": 10,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "SDR",
+        "to": "SYD",
+        "distance_m": 1.0,
+        "weight": 8,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "CWT",
+        "to": "BWT",
+        "distance_m": 129.0,
+        "weight": 6,
+        "satisfied": false,
+        "weighted_excess_m": 744.0
+      },
+      {
+        "from": "IPS",
+        "to": "PH1",
+        "distance_m": 109.89540481748998,
+        "weight": 6,
+        "satisfied": false,
+        "weighted_excess_m": 629.3724289049399
+      },
+      {
+        "from": "PDR",
+        "to": "PH1",
+        "distance_m": 3.0,
+        "weight": 6,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "PDR",
+        "to": "PH2",
+        "distance_m": 96.13012014972206,
+        "weight": 6,
+        "satisfied": false,
+        "weighted_excess_m": 546.7807208983323
+      },
+      {
+        "from": "TRF",
+        "to": "PDR",
+        "distance_m": 44.68780594300866,
+        "weight": 5,
+        "satisfied": false,
+        "weighted_excess_m": 198.43902971504332
+      },
+      {
+        "from": "CR",
+        "to": "OF",
+        "distance_m": 51.478150704935004,
+        "weight": 5,
+        "satisfied": false,
+        "weighted_excess_m": 232.390753524675
+      },
+      {
+        "from": "CR",
+        "to": "PDR",
+        "distance_m": 112.21853679316978,
+        "weight": 4,
+        "satisfied": false,
+        "weighted_excess_m": 428.8741471726791
+      },
+      {
+        "from": "GT",
+        "to": "OF",
+        "distance_m": 44.204072210600685,
+        "weight": 4,
+        "satisfied": false,
+        "weighted_excess_m": 156.81628884240274
+      },
+      {
+        "from": "DM1",
+        "to": "DM2",
+        "distance_m": 1.0,
+        "weight": 12,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "DM2",
+        "to": "DM3",
+        "distance_m": 108.0,
+        "weight": 12,
+        "satisfied": false,
+        "weighted_excess_m": 1236.0
+      },
+      {
+        "from": "DM3",
+        "to": "DM4",
+        "distance_m": 92.0869154657707,
+        "weight": 12,
+        "satisfied": false,
+        "weighted_excess_m": 1045.0429855892485
+      },
+      {
+        "from": "DM1",
+        "to": "SPF",
+        "distance_m": 16.492422502470642,
+        "weight": 8,
+        "satisfied": false,
+        "weighted_excess_m": 91.93938001976514
+      },
+      {
+        "from": "DM4",
+        "to": "SPF",
+        "distance_m": 4.0,
+        "weight": 8,
+        "satisfied": true,
+        "weighted_excess_m": 0
+      },
+      {
+        "from": "OF",
+        "to": "DM1",
+        "distance_m": 18.0,
+        "weight": 5,
+        "satisfied": false,
+        "weighted_excess_m": 65.0
+      }
+    ],
+    "hydraulics": [
+      {
+        "from": "IPS",
+        "to": "GC",
+        "length_m": 5.4,
+        "required_head_m": 0.4054,
+        "available_head_m": 4.200000000000003,
+        "margin_m": 3.7946000000000026,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "GC",
+        "to": "PS",
+        "length_m": 21.6,
+        "required_head_m": 0.5216000000000001,
+        "available_head_m": 4.400000000000006,
+        "margin_m": 3.8784000000000054,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "PS",
+        "to": "MB",
+        "length_m": 88.02000000000001,
+        "required_head_m": 0.6056239999999999,
+        "available_head_m": 4.400000000000006,
+        "margin_m": 3.794376000000006,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "MB",
+        "to": "FB",
+        "length_m": 31.32,
+        "required_head_m": 0.487584,
+        "available_head_m": 4.1000000000000085,
+        "margin_m": 3.6124160000000085,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "FB",
+        "to": "SB",
+        "length_m": 5.4,
+        "required_head_m": 0.5054000000000001,
+        "available_head_m": 4.1000000000000085,
+        "margin_m": 3.5946000000000087,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "SB",
+        "to": "FT",
+        "length_m": 149.04000000000002,
+        "required_head_m": 0.6490400000000001,
+        "available_head_m": 4.200000000000003,
+        "margin_m": 3.5509600000000026,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "FT",
+        "to": "CWT",
+        "length_m": 109.08000000000001,
+        "required_head_m": 0.55908,
+        "available_head_m": 5.200000000000003,
+        "margin_m": 4.640920000000003,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "FT",
+        "to": "OZG",
+        "length_m": 175.45000000000002,
+        "required_head_m": 0.71054,
+        "available_head_m": 2.700000000000003,
+        "margin_m": 1.989460000000003,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "OZG",
+        "to": "ACF",
+        "length_m": 47.300000000000004,
+        "required_head_m": 0.5567599999999999,
+        "available_head_m": 2.6000000000000085,
+        "margin_m": 2.043240000000009,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "ACF",
+        "to": "CWT",
+        "length_m": 23.650000000000002,
+        "required_head_m": 0.47365,
+        "available_head_m": 3.1000000000000085,
+        "margin_m": 2.6263500000000084,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "CWT",
+        "to": "BWT",
+        "length_m": 151.79999999999998,
+        "required_head_m": 0.47143999999999997,
+        "available_head_m": 1.7000000000000028,
+        "margin_m": 1.228560000000003,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "SB",
+        "to": "STK",
+        "length_m": 93.80999999999999,
+        "required_head_m": 1.17524,
+        "available_head_m": 1.7000000000000028,
+        "margin_m": 0.5247600000000028,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "STK",
+        "to": "SDR",
+        "length_m": 8.26,
+        "required_head_m": 0.9413,
+        "available_head_m": 2.4000000000000057,
+        "margin_m": 1.4587000000000057,
+        "shortage_m": 0,
+        "feasible": true
+      },
+      {
+        "from": "SDR",
+        "to": "SYD",
+        "length_m": 7.08,
+        "required_head_m": 0.6712400000000001,
+        "available_head_m": 3.200000000000003,
+        "margin_m": 2.528760000000003,
+        "shortage_m": 0,
+        "feasible": true
+      }
+    ],
+    "hydraulic_feasible": true
+  },
+  "layout": [
+    {
+      "name": "IPS",
+      "x": 124,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "GC",
+      "x": 113,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "PS",
+      "x": 72,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "MB",
+      "x": 161,
+      "y": 27,
+      "rotated": true
+    },
+    {
+      "name": "FB",
+      "x": 200,
+      "y": 18,
+      "rotated": true
+    },
+    {
+      "name": "SB",
+      "x": 181,
+      "y": 0,
+      "rotated": true
+    },
+    {
+      "name": "FT",
+      "x": 17,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "OZG",
+      "x": 178,
+      "y": 39,
+      "rotated": false
+    },
+    {
+      "name": "ACF",
+      "x": 114,
+      "y": 36,
+      "rotated": false
+    },
+    {
+      "name": "OZR",
+      "x": 0,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "CDR",
+      "x": 100,
+      "y": 1,
+      "rotated": true
+    },
+    {
+      "name": "CLS",
+      "x": 204,
+      "y": 41,
+      "rotated": true
+    },
+    {
+      "name": "CST",
+      "x": 202,
+      "y": 0,
+      "rotated": true
+    },
+    {
+      "name": "CWT",
+      "x": 144,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "BWT",
+      "x": 0,
+      "y": 15,
+      "rotated": false
+    },
+    {
+      "name": "PH1",
+      "x": 0,
+      "y": 26,
+      "rotated": false
+    },
+    {
+      "name": "PH2",
+      "x": 114,
+      "y": 14,
+      "rotated": true
+    },
+    {
+      "name": "PDR",
+      "x": 0,
+      "y": 39,
+      "rotated": false
+    },
+    {
+      "name": "TRF",
+      "x": 52,
+      "y": 0,
+      "rotated": false
+    },
+    {
+      "name": "STK",
+      "x": 94,
+      "y": 39,
+      "rotated": false
+    },
+    {
+      "name": "SDR",
+      "x": 84,
+      "y": 17,
+      "rotated": true
+    },
+    {
+      "name": "SYD",
+      "x": 97,
+      "y": 18,
+      "rotated": true
+    },
+    {
+      "name": "CR",
+      "x": 130,
+      "y": 14,
+      "rotated": true
+    },
+    {
+      "name": "OF",
+      "x": 54,
+      "y": 39,
+      "rotated": false
+    },
+    {
+      "name": "GT",
+      "x": 114,
+      "y": 8,
+      "rotated": false
+    },
+    {
+      "name": "LAB",
+      "x": 80,
+      "y": 39,
+      "rotated": false
+    },
+    {
+      "name": "WH",
+      "x": 17,
+      "y": 18,
+      "rotated": false
+    },
+    {
+      "name": "PK",
+      "x": 38,
+      "y": 18,
+      "rotated": true
+    },
+    {
+      "name": "MW",
+      "x": 141,
+      "y": 39,
+      "rotated": false
+    },
+    {
+      "name": "DM1",
+      "x": 21,
+      "y": 41,
+      "rotated": false
+    },
+    {
+      "name": "DM2",
+      "x": 21,
+      "y": 30,
+      "rotated": false
+    },
+    {
+      "name": "DM3",
+      "x": 144,
+      "y": 27,
+      "rotated": false
+    },
+    {
+      "name": "DM4",
+      "x": 37,
+      "y": 41,
+      "rotated": false
+    },
+    {
+      "name": "SPF",
+      "x": 52,
+      "y": 17,
+      "rotated": false
+    }
+  ],
+  "relative_gap": 0.14816870144284128
+}

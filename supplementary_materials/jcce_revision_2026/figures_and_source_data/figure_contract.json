@@ -1,0 +1,10 @@
+{
+  "claim": "The fixed-budget configurations expose conditional performance and engineering trade-offs, not universal superiority.",
+  "backend": "Python matplotlib",
+  "archetype": "quantitative grid plus separate method schematics",
+  "replicates": "10 independent seed pairs on one fixed 34-facility instance",
+  "center_spread": "individual paired observations; manuscript tables mean and sample SD",
+  "statistics": "three prespecified sign-flip tests with Holm correction; see analysis.json",
+  "exports": "editable SVG and PDF, 600 dpi TIFF, PNG preview",
+  "projection_caveat": "two-dimensional projections of four-objective non-dominated archives are not necessarily two-dimensional Pareto fronts"
+}
